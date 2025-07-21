@@ -1,25 +1,53 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tompkins Thomas Planning</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
 <body class="bg-white text-gray-900">
-  <header class="bg-gray-100 shadow p-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold">Tompkins Thomas Planning</h1>
-    <nav class="space-x-4">
-      <a href="#home" class="hover:underline">Home</a>
-      <a href="#about" class="hover:underline">About</a>
-      <a href="#services" class="hover:underline">Services</a>
-      <a href="#projects" class="hover:underline">Projects</a>
-      <a href="#contact" class="hover:underline">Contact</a>
-    </nav>
+  <!-- Header -->
+  <header class="bg-gray-100 shadow p-4 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <img src="Logo.png" alt="Tompkins Thomas Planning Logo" class="h-12 w-auto">
+        <h1 class="text-xl font-bold">Tompkins Thomas Planning</h1>
+      </div>
+      <nav class="hidden md:flex space-x-6 text-sm font-medium">
+        <a href="#home" class="hover:underline">Home</a>
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#services" class="hover:underline">Services</a>
+        <a href="#projects" class="hover:underline">Projects</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+      </nav>
+      <div class="md:hidden">
+        <button id="mobileMenuBtn" class="focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden mt-2 px-4 space-y-2">
+      <a href="#home" class="block hover:underline">Home</a>
+      <a href="#about" class="block hover:underline">About</a>
+      <a href="#services" class="block hover:underline">Services</a>
+      <a href="#projects" class="block hover:underline">Projects</a>
+      <a href="#contact" class="block hover:underline">Contact</a>
+    </div>
   </header>
 
+  <!-- Main Content -->
   <main>
-    <section id="home" class="p-8 text-center">
-      <h1 class="text-4xl font-bold mb-4">Welcome to Tompkins Thomas Planning</h1>
+    <!-- Hero -->
+    <section id="home" class="p-8 text-center bg-gray-50">
+      <h2 class="text-4xl font-bold mb-4">Welcome to Tompkins Thomas Planning</h2>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto">
         Professional, tailored town planning consultancy services across the UK. We help navigate complex planning policy, applications, and appeals with clarity and confidence.
       </p>
@@ -28,14 +56,16 @@
       </a>
     </section>
 
+    <!-- About -->
     <section id="about" class="p-8 max-w-3xl mx-auto">
       <h2 class="text-3xl font-bold mb-4">About Us</h2>
-      <p class="text-gray-700">
-        Tompkins Thomas Planning is a professional town planning consultancy with a commitment to delivering tailored advice and support for a range of development projects. [Placeholder content]
+      <p class="text-gray-700 leading-relaxed">
+        Tompkins Thomas Planning is a professional town planning consultancy with a commitment to delivering tailored advice and support for a range of development projects. We work across residential, commercial, and rural sectors, offering bespoke solutions that meet client needs and align with planning policy.
       </p>
     </section>
 
-    <section id="services" class="p-8 max-w-3xl mx-auto">
+    <!-- Services -->
+    <section id="services" class="p-8 max-w-3xl mx-auto bg-gray-50 rounded-xl">
       <h2 class="text-3xl font-bold mb-4">Our Services</h2>
       <ul class="list-disc list-inside text-gray-700 space-y-2">
         <li>Planning Applications</li>
@@ -46,24 +76,48 @@
       </ul>
     </section>
 
+    <!-- Projects -->
     <section id="projects" class="p-8 max-w-3xl mx-auto">
       <h2 class="text-3xl font-bold mb-4">Projects</h2>
       <p class="text-gray-700">
-        Take a look at some of our recent projects across residential, commercial, and rural development. [Placeholder content for project highlights.]
+        Take a look at some of our recent work in residential, commercial, and rural development. [Placeholder for future project highlights or case studies.]
       </p>
     </section>
 
+    <!-- Contact -->
     <section id="contact" class="p-8 max-w-2xl mx-auto">
       <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
       <form class="space-y-4">
-        <input class="w-full p-2 border rounded" type="text" placeholder="Your Name" required />
-        <input class="w-full p-2 border rounded" type="email" placeholder="Your Email" required />
-        <textarea class="w-full p-2 border rounded" rows="5" placeholder="Your Message" required></textarea>
-        <button class="px-6 py-2 bg-black text-white rounded hover:bg-gray-800" type="submit">
+        <div>
+          <label class="block text-gray-700 mb-1" for="name">Your Name</label>
+          <input class="w-full p-2 border rounded" type="text" id="name" name="name" required />
+        </div>
+        <div>
+          <label class="block text-gray-700 mb-1" for="email">Your Email</label>
+          <input class="w-full p-2 border rounded" type="email" id="email" name="email" required />
+        </div>
+        <div>
+          <label class="block text-gray-700 mb-1" for="message">Your Message</label>
+          <textarea class="w-full p-2 border rounded" rows="5" id="message" name="message" required></textarea>
+        </div>
+        <button class="px-6 py-2 bg-black text-white rounded hover:bg-gray-800 transition" type="submit">
           Send Message
         </button>
       </form>
     </section>
   </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 text-center text-sm text-gray-600 py-4 mt-8">
+    © 2025 Tompkins Thomas Planning. All rights reserved.
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
